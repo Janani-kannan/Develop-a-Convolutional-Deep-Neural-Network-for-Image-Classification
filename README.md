@@ -94,31 +94,6 @@ def train_model(model, train_loader, num_epochs=3):
 
 
 
-# Initialize the Model, Loss Function, and Optimizer
-
-model = CNNClassifier()
-criterion =nn.CrossEntropyLoss()
-optimizer =optim.Adam(model.parameters(),lr=0.001)
-
-# Train The Model
-
-def train_model(model, train_loader, num_epochs=3):
-
-    for epoch in range(num_epochs):
-        model.train()
-        running_loss = 0.0
-
-        for images, labels in train_loader:
-            optimizer.zero_grad()
-            outputs = model(images)
-            loss = criterion(outputs, labels)
-            loss.backward()
-            optimizer.step()
-            running_loss += loss.item()
-        print('Name: Janani K')
-        print('Register Number: 212224230102')
-        print(f'Epoch [{epoch+1}/{num_epochs}], Loss: {running_loss/len(train_loader):.4f}')
-        
 # Train the Model
 train_model(model, train_loader)
 
